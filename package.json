@@ -8,8 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm run start"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Yi Sheng Lee (yisheng@yishenglee.com)",
+  "license": "UNLICENSED",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
