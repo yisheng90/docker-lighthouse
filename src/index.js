@@ -8,11 +8,6 @@ const router = express.Router();
 
 const port = 8080;
 
-router.use((req, _res, next) => {
-  console.log("Handing Lighthouse Request");
-  next();
-});
-
 router.post("/", async (req, res) => {
   try {
     const {
