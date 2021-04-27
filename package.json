@@ -2,11 +2,10 @@
   "name": "docker-lighthouse",
   "version": "1.0.0",
   "description": "Lighthouse service",
-  "main": "index.js",
-  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm run start"
+    "start": "npm run start",
+    "build": "tsc --build tsconfig.json"
   },
   "author": "Yi Sheng Lee (yisheng@yishenglee.com)",
   "license": "UNLICENSED",
@@ -16,5 +15,12 @@
     "helmet": "^4.5.0",
     "lighthouse": "^7.3.0",
     "puppeteer": "^9.0.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.10",
+    "@types/express": "^4.17.11",
+    "@types/helmet": "^4.0.0",
+    "@types/puppeteer": "^5.4.3",
+    "typescript": "^4.2.4"
   }
 }

@@ -1,29 +1,12 @@
-import express from "express";
-import cors from "cors";
-import helmet from "helmet";
-import { runLighthouse } from "./lighthouse.js";
+import * as express from "express";
+import * as cors from "cors";
+import * as helmet from "helmet";
+import { runLighthouse } from "./services/lighthouse";
 
 const app = express();
 const router = express.Router();
 
 const port = 8080;
-
-router.post("/", async (req, res) => {
-  try {
-    const {
-      body: { url, device },
-    } = req;
-
-    const report = await runLighthouse(url, device);
-
-    res.status(200).send(report);
-  } catch (err) {
-    console.log("ERROR");
-    console.log(err);
-
-    res.status(500).send("Error");
-  }
-});
 
 app.use(helmet());
 app.use(cors());
@@ -33,6 +16,18 @@ app.use(
     extended: true,
   })
 );
+
+router.post("/", async ({ body: { url, device } }, res) => {
+  try {
+    const report = await runLighthouse(url, device);
+    res.status(200).send(report);
+  } catch (err) {
+    console.log("ERROR");
+    console.log(err);
+
+    res.status(500).send("Error");
+  }
+});
 
 app.use("/", router);
 
